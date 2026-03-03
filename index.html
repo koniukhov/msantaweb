@@ -75,11 +75,11 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 28px;
       font-weight: 700;
-      color: #FFDF00;
+      color: var(--gold);
       letter-spacing: 0.05em;
       text-transform: uppercase;
       line-height: 1;
-      text-shadow: 0 0 12px rgba(255, 223, 0, 0.5);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     }
 
     .nav-right {
@@ -1129,9 +1129,7 @@
       <div class="logo-text">EMSANTA OY</div>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about" data-en="About" data-fi="Meistä">About</a></li>
       <li><a href="#services" data-en="Services" data-fi="Palvelut">Services</a></li>
-      <li><a href="#why" data-en="Our Approach" data-fi="Lähestymistapamme">Our Approach</a></li>
       <li><a href="#contact" data-en="Contact" data-fi="Yhteystiedot">Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -1148,9 +1146,7 @@
 
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" data-en="About" data-fi="Meistä">About</a>
     <a href="#services" data-en="Services" data-fi="Palvelut">Services</a>
-    <a href="#why" data-en="Our Approach" data-fi="Lähestymistapamme">Our Approach</a>
     <a href="#contact" data-en="Contact" data-fi="Yhteystiedot">Contact</a>
     <div class="mobile-lang">
       <button class="active" onclick="setLang('en')" id="mob-btn-en">EN</button>
@@ -1188,31 +1184,6 @@
   </section>
 
 
-  <!-- ─── ABOUT ────────────────────────────────────────── -->
-  <section class="about" id="about">
-    <div class="about-left">
-      <p data-en="EMSANTA OY delivers practical solutions focused on efficiency, structured planning and long-term business performance. Rooted in Finnish business culture, we value reliability, transparency and measurable results."
-        data-fi="EMSANTA OY tarjoaa käytännöllisiä ratkaisuja, jotka keskittyvät tehokkuuteen, strukturoituun suunnitteluun ja pitkäaikaiseen liiketoiminnan tuloksellisuuteen. Suomalaisen yrityskulttuurin juuret ohjaavat meitä — arvostamme luotettavuutta, läpinäkyvyyttä ja mitattavia tuloksia.">
-        EMSANTA OY delivers practical solutions focused on efficiency, structured planning and long-term business
-        performance. Rooted in Finnish business culture, we value reliability, transparency and measurable results.
-      </p>
-    </div>
-    <div class="about-right">
-      <p data-en="We combine commercial insight and systematic methodology to support businesses, property owners and investors in achieving sustainable growth. Every project is approached with discipline, discretion and a results-oriented mindset."
-        data-fi="Yhdistämme kaupallisen näkemyksen ja systemaattisen metodologian tukemaan yrityksiä, kiinteistönomistajia ja sijoittajia kestävän kasvun saavuttamisessa. Jokainen projekti toteutetaan kurinalaisuudella, harkinnalla ja tuloskeskeisellä asenteella.">
-        We combine commercial insight and systematic methodology to support businesses, property owners and investors in
-        achieving sustainable growth. Every project is approached with discipline, discretion and a results-oriented
-        mindset.
-      </p>
-      <ul class="principles">
-        <li data-en="Clear Goal-Setting" data-fi="Selkeä Tavoitteiden Asettaminen">Clear Goal-Setting</li>
-        <li data-en="Systematic Execution" data-fi="Systemaattinen Toteutus">Systematic Execution</li>
-        <li data-en="Financial Discipline" data-fi="Taloudellinen Kurinalaisuus">Financial Discipline</li>
-        <li data-en="Confidential &amp; Transparent Processes" data-fi="Luottamukselliset ja Läpinäkyvät Prosessit">
-          Confidential &amp; Transparent Processes</li>
-      </ul>
-    </div>
-  </section>
 
   <!-- ─── SERVICES ────────────────────────────────────── -->
   <section class="services" id="services">
@@ -1311,72 +1282,6 @@
     </div>
   </section>
 
-  <!-- ─── WHY ─────────────────────────────────────────── -->
-  <section class="why" id="why">
-    <div class="why-left">
-      <div class="why-box">
-        <div class="trust-metrics">
-          <div class="trust-metric">
-            <div class="t-val">EU</div>
-            <div class="t-label" data-en="Compliant Standards" data-fi="EU-standardit">Compliant Standards</div>
-          </div>
-          <div class="trust-metric">
-            <div class="t-val">FI</div>
-            <div class="t-label" data-en="Finnish Registry" data-fi="Kaupparekisteri">Finnish Registry</div>
-          </div>
-          <div class="trust-metric">
-            <div class="t-val">100%</div>
-            <div class="t-label" data-en="Discreet Advisory" data-fi="Luottamuksellinen neuvonta">Discreet Advisory
-            </div>
-          </div>
-          <div class="trust-metric">
-            <div class="t-val">4</div>
-            <div class="t-label" data-en="Practice Areas" data-fi="Toimialat">Practice Areas</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="why-right">
-      <div class="why-features">
-        <div class="why-feature">
-          <div class="why-feature-num">—</div>
-          <div class="why-feature-text">
-            <h4 data-en="Structured Workflows" data-fi="Strukturoidut Työnkulut">Structured Workflows</h4>
-            <p data-en="Predictable processes and clear deliverables at every stage of engagement."
-              data-fi="Ennakoitavat prosessit ja selkeät toimitukset jokaisessa toimeksiantovaiheessa.">Predictable
-              processes and clear deliverables at every stage of engagement.</p>
-          </div>
-        </div>
-        <div class="why-feature">
-          <div class="why-feature-num">—</div>
-          <div class="why-feature-text">
-            <h4 data-en="Cross-Border Expertise" data-fi="Kansainvälinen Osaaminen">Cross-Border Expertise</h4>
-            <p data-en="Experienced with international and cross-border projects across multiple industries."
-              data-fi="Kokemusta kansainvälisistä ja rajat ylittävistä projekteista eri toimialoilla.">Experienced with
-              international and cross-border projects across multiple industries.</p>
-          </div>
-        </div>
-        <div class="why-feature">
-          <div class="why-feature-num">—</div>
-          <div class="why-feature-text">
-            <h4 data-en="Confidential Handling" data-fi="Luottamuksellinen Käsittely">Confidential Handling</h4>
-            <p data-en="All client information managed with strict discretion and professional standards."
-              data-fi="Kaikkia asiakastietoja hallitaan tiukalla harkinnalla ja ammattistandardeilla.">All client
-              information managed with strict discretion and professional standards.</p>
-          </div>
-        </div>
-        <div class="why-feature">
-          <div class="why-feature-num">—</div>
-          <div class="why-feature-text">
-            <h4 data-en="Combined Expertise" data-fi="Yhdistetty Asiantuntemus">Combined Expertise</h4>
-            <p data-en="Unified competence in business, marketing, investment and technology."
-              data-fi="Yhtenäinen osaaminen liiketoiminnassa, markkinoinnissa, sijoittamisessa ja teknologiassa.">
-              Unified competence in business, marketing, investment and technology.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ─── CONTACT ──────────────────────────────────────── -->
   <section class="contact" id="contact">
