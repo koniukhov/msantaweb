@@ -530,12 +530,28 @@
     }
 
     .section-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 80px;
-      padding-bottom: 40px;
+      display: grid;
+      grid-template-columns: 140px 1fr 1fr;
+      gap: 0;
+      margin-bottom: 72px;
+      padding-bottom: 48px;
       border-bottom: 1px solid var(--border);
+      align-items: end;
+    }
+
+    .section-header-counter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 88px;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      padding-right: 32px;
+      border-right: 1px solid var(--border);
+    }
+
+    .section-header-main {
+      padding: 0 48px;
     }
 
     .section-label {
@@ -554,13 +570,26 @@
       color: var(--ink);
     }
 
-    .section-header p {
-      font-size: 12px;
+    .section-header-desc {
+      padding-left: 40px;
+      border-left: 1px solid var(--border);
+    }
+
+    .section-header-desc p {
+      font-size: 13px;
       color: var(--muted);
-      max-width: 280px;
-      text-align: right;
-      line-height: 1.8;
+      line-height: 1.85;
       font-weight: 400;
+      max-width: 280px;
+    }
+
+    .section-header-desc .desc-tag {
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
     }
 
     .services-grid {
@@ -1008,6 +1037,14 @@
         padding: 80px 32px;
       }
 
+      .section-header {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-header-counter {
+        display: none;
+      }
+
       .services-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -1045,6 +1082,17 @@
 
       .hero-left {
         padding: 100px 20px 50px;
+      }
+
+      .section-header {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .section-header-desc {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding: 20px 0 0;
       }
 
       .services-grid {
@@ -1188,14 +1236,18 @@
   <!-- ─── SERVICES ────────────────────────────────────── -->
   <section class="services" id="services">
     <div class="section-header">
-      <div>
+      <div class="section-header-counter" aria-hidden="true">04</div>
+      <div class="section-header-main">
         <div class="section-label" data-en="What We Do" data-fi="Mitä Teemme">What We Do</div>
         <h2 data-en="Our Services" data-fi="Palvelumme">Our Services</h2>
       </div>
-      <p data-en="Four integrated practice areas delivering measurable outcomes for clients and investors."
-        data-fi="Neljä integroitua toimialuetta, jotka tuottavat mitattavia tuloksia asiakkaille ja sijoittajille.">
-        Four integrated practice areas delivering measurable outcomes for clients and investors.
-      </p>
+      <div class="section-header-desc">
+        <span class="desc-tag" data-en="Practice Areas" data-fi="Toimialueet">Practice Areas</span>
+        <p data-en="Four integrated disciplines delivering measurable outcomes for clients and investors."
+          data-fi="Neljä integroitua toimialuetta, jotka tuottavat mitattavia tuloksia asiakkaille ja sijoittajille.">
+          Four integrated disciplines delivering measurable outcomes for clients and investors.
+        </p>
+      </div>
     </div>
     <div class="services-grid">
       <div class="service-card">
