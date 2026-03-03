@@ -1,0 +1,8 @@
+# Доступы к финскому хостингу Domainhotelli.fi
+# Агенты (Qwen / Flash) будут брать данные отсюда.
+# Пожалуйста, удалите этот файл (или очистите) после завершения деплоя из соображений безопасности.
+
+url: https://www.domainhotelli.fi/asiakkaat/clientarea.php
+domain: emsanta.fi
+login:anton.koniukhov@gmail.com]
+password:VZT.ijEQxC@E6_W
