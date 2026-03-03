@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMSANTA OY — Strategy, Trust and Investment</title>
+  <meta name="description"
+    content="EMSANTA OY operates at the intersection of strategy, investment and technology — consulting, marketing, real estate investment and software development.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #2a2a2a;
+      --cream: #f5f2ec;
+      --warm: #ede8df;
+      --warm2: #e4ddd1;
+      --gold: #b8954a;
+      --gold-light: #d4b06a;
+      --muted: #5a5550;
+      --border: rgba(184, 149, 74, 0.25);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 60px;
+      background: rgba(245, 242, 236, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s, box-shadow 0.3s;
+    }
+
+    nav.scrolled {
+      padding: 14px 60px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 44px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Language switcher */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .lang-switch button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 7px 12px;
+      transition: all 0.2s;
+    }
+
+    .lang-switch button.active {
+      background: var(--gold);
+      color: var(--cream);
+    }
+
+    .lang-switch button:hover:not(.active) {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 11px 28px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--cream);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--ink);
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--cream);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding-top: 80px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a,
+    .mobile-menu button {
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      transition: color 0.3s;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--gold);
+    }
+
+    .mobile-lang {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .mobile-lang button {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+
+    .mobile-lang button.active {
+      background: var(--gold);
+      color: var(--cream);
+    }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      background: url('photo_5852560452192242986_y.jpg') center center / cover no-repeat;
+      transform: scale(1.05);
+      transition: transform 8s ease-out;
+      z-index: 0;
+    }
+
+    .hero-photo.loaded {
+      transform: scale(1);
+    }
+
+    /* Gradient overlay for text readability */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg,
+          rgba(20, 16, 10, 0.72) 0%,
+          rgba(20, 16, 10, 0.52) 50%,
+          rgba(20, 16, 10, 0.18) 100%);
+      z-index: 1;
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 2;
+      padding: 160px 80px 100px;
+      max-width: 720px;
+    }
+
+    /* Helsinki badge over photo */
+    .hero-badge {
+      position: absolute;
+      background: rgba(20, 16, 10, 0.55);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(184, 149, 74, 0.4);
+      padding: 18px 24px;
+      z-index: 2;
+    }
+
+    .hero-badge .val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1;
+    }
+
+    .hero-badge .val span {
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    .hero-badge .label {
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 242, 236, 0.6);
+      margin-top: 6px;
+    }
+
+    .hero-badges {
+      position: absolute;
+      bottom: 48px;
+      right: 60px;
+      display: flex;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    .hero-content {
+      max-width: 620px;
+    }
+
+    .hero-tag {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 6vw, 86px);
+      font-weight: 300;
+      line-height: 1.06;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      color: var(--cream);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(245, 242, 236, 0.75);
+      max-width: 480px;
+      margin-bottom: 52px;
+      font-weight: 400;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--gold);
+      padding: 18px 40px;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+
+    .hero-cta::after {
+      content: '→';
+      transition: transform 0.3s;
+    }
+
+    .hero-cta:hover {
+      background: var(--gold-light);
+    }
+
+    .hero-cta:hover::after {
+      transform: translateX(4px);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(26px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content>* {
+      animation: fadeUp 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-tag {
+      animation-delay: 0.15s;
+    }
+
+    .hero h1 {
+      animation-delay: 0.25s;
+    }
+
+    .hero p {
+      animation-delay: 0.35s;
+    }
+
+    .hero-cta {
+      animation-delay: 0.45s;
+    }
+
+    /* ─── ABOUT ─────────────────────────────────────────── */
+    .about {
+      padding: 120px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .about-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .about h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 54px);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 32px;
+    }
+
+    .about h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .about-left p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: rgba(245, 242, 236, 0.65);
+      font-weight: 400;
+    }
+
+    .about-right {
+      border-left: 1px solid rgba(184, 149, 74, 0.3);
+      padding-left: 60px;
+    }
+
+    .about-right p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: rgba(245, 242, 236, 0.65);
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .principles {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .principles li {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245, 242, 236, 0.5);
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(184, 149, 74, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: color 0.3s;
+    }
+
+    .principles li::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .principles li:hover {
+      color: var(--gold-light);
+    }
+
+    .gold-line {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 36px 0;
+    }
+
+    /* ─── SERVICES ─────────────────────────────────────── */
+    .services {
+      padding: 120px 60px;
+      background: var(--cream);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 80px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 54px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .section-header p {
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 280px;
+      text-align: right;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .service-card {
+      background: var(--cream);
+      padding: 48px 36px;
+      transition: background 0.4s;
+      cursor: default;
+    }
+
+    @media (hover: hover) {
+      .service-card:hover {
+        background: var(--ink);
+      }
+
+      .service-card:hover .service-num {
+        color: rgba(184, 149, 74, 0.2);
+      }
+
+      .service-card:hover .service-icon {
+        opacity: 1;
+        filter: brightness(5);
+      }
+
+      .service-card:hover h3 {
+        color: var(--cream);
+      }
+
+      .service-card:hover p {
+        color: rgba(245, 242, 236, 0.5);
+      }
+
+      .service-card:hover .service-items li {
+        color: rgba(245, 242, 236, 0.4);
+      }
+    }
+
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 32px;
+      transition: color 0.4s;
+    }
+
+    .service-icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 24px;
+      opacity: 0.5;
+      transition: opacity 0.4s, filter 0.4s;
+    }
+
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 16px;
+      color: var(--ink);
+      transition: color 0.4s;
+    }
+
+    .service-card p {
+      font-size: 12px;
+      line-height: 1.8;
+      color: #3a3632;
+      font-weight: 400;
+      transition: color 0.4s;
+    }
+
+    .service-items {
+      list-style: none;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .service-items li {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      padding-left: 12px;
+      position: relative;
+      transition: color 0.4s;
+      font-weight: 400;
+    }
+
+    .service-items li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    /* ─── WHY ─────────────────────────────────────────── */
+    .why {
+      padding: 120px 60px;
+      background: #333333;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .why-box {
+      background: rgba(245, 242, 236, 0.05);
+      border: 1px solid rgba(184, 149, 74, 0.2);
+      padding: 60px;
+    }
+
+    .why-box .big-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 120px;
+      font-weight: 300;
+      color: rgba(184, 149, 74, 0.15);
+      line-height: 0.8;
+      margin-bottom: 24px;
+    }
+
+    .why-box blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.5;
+      margin-bottom: 48px;
+    }
+
+    .why-box blockquote em {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+
+    .trust-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(184, 149, 74, 0.15);
+    }
+
+    .trust-metric {
+      background: rgba(245, 242, 236, 0.04);
+      padding: 20px;
+    }
+
+    .trust-metric .t-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .trust-metric .t-label {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245, 242, 236, 0.45);
+      line-height: 1.4;
+    }
+
+    .why-right .section-label {
+      color: var(--gold);
+    }
+
+    .why-right h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 40px;
+    }
+
+    .why-features {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .why-feature {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(184, 149, 74, 0.15);
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .why-feature-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: var(--gold);
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .why-feature-text h4 {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+
+    .why-feature-text p {
+      font-size: 12px;
+      color: rgba(245, 242, 236, 0.4);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────── */
+    .contact {
+      padding: 120px 60px;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .contact-left .section-label {
+      margin-bottom: 16px;
+    }
+
+    .contact-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 54px);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 32px;
+      color: var(--ink);
+    }
+
+    .contact-left h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .contact-left p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .contact-info {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-item-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .contact-item-text small {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-item-text a,
+    .contact-item-text span {
+      text-decoration: none;
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+    }
+
+    .contact-right {
+      background: var(--ink);
+      padding: 60px;
+    }
+
+    .contact-right h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 242, 236, 0.4);
+      margin-bottom: 10px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(245, 242, 236, 0.05);
+      border: 1px solid rgba(184, 149, 74, 0.2);
+      padding: 14px 16px;
+      color: var(--cream);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.3s;
+      resize: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(245, 242, 236, 0.2);
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      border: none;
+      padding: 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: 500;
+    }
+
+    .form-submit:hover {
+      background: var(--gold-light);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer {
+      padding: 40px 60px;
+      background: var(--ink);
+      border-top: 1px solid rgba(184, 149, 74, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer .logo-name {
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      letter-spacing: 0.12em;
+    }
+
+    footer p {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: rgba(245, 242, 236, 0.3);
+    }
+
+    footer p span {
+      color: var(--gold);
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav {
+        padding: 18px 32px;
+      }
+
+      nav.scrolled {
+        padding: 12px 32px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-left {
+        padding: 120px 32px 60px;
+        min-height: 70vh;
+      }
+
+      .hero-left::after {
+        display: none;
+      }
+
+      .hero-right {
+        min-height: 50vw;
+      }
+
+      .about,
+      .contact,
+      .why {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 80px 32px;
+      }
+
+      .about-right {
+        border-left: none;
+        border-top: 1px solid rgba(184, 149, 74, 0.3);
+        padding: 40px 0 0;
+      }
+
+      .services {
+        padding: 80px 32px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      nav.scrolled {
+        padding: 12px 20px;
+      }
+
+      .nav-links,
+      .nav-cta,
+      .lang-switch {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-left {
+        padding: 100px 20px 50px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-badges {
+        flex-direction: column;
+        bottom: 20px;
+        left: 20px;
+        gap: 8px;
+      }
+
+      .why-box {
+        padding: 36px 28px;
+      }
+
+      .contact-right {
+        padding: 40px 28px;
+      }
+
+      .about,
+      .contact,
+      .why {
+        padding: 70px 20px;
+      }
+
+      .services {
+        padding: 70px 20px;
+      }
+
+      footer {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─── NAVIGATION ──────────────────────────────────── -->
+  <nav id="navbar">
+    <a href="#hero" class="logo-wrap">
+      <img src="Msant_logo.png" alt="EMSANTA OY" class="logo-img">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-en="About" data-fi="Meistä">About</a></li>
+      <li><a href="#services" data-en="Services" data-fi="Palvelut">Services</a></li>
+      <li><a href="#why" data-en="Our Approach" data-fi="Lähestymistapamme">Our Approach</a></li>
+      <li><a href="#contact" data-en="Contact" data-fi="Yhteystiedot">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switch" id="langSwitch">
+        <button class="active" onclick="setLang('en')" id="btn-en">EN</button>
+        <button onclick="setLang('fi')" id="btn-fi">FI</button>
+      </div>
+      <a href="#contact" class="nav-cta" data-en="Contact Us" data-fi="Ota yhteyttä">Contact Us</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" data-en="About" data-fi="Meistä">About</a>
+    <a href="#services" data-en="Services" data-fi="Palvelut">Services</a>
+    <a href="#why" data-en="Our Approach" data-fi="Lähestymistapamme">Our Approach</a>
+    <a href="#contact" data-en="Contact" data-fi="Yhteystiedot">Contact</a>
+    <div class="mobile-lang">
+      <button class="active" onclick="setLang('en')" id="mob-btn-en">EN</button>
+      <button onclick="setLang('fi')" id="mob-btn-fi">FI</button>
+    </div>
+  </div>
+
+  <!-- ─── HERO ────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero-photo" id="heroPhoto"></div>
+    <div class="hero-left">
+      <div class="hero-content">
+        <div class="hero-tag" data-en="Finland-Based · Est. 2372342-0"
+          data-fi="Suomalainen Yritys · Y-tunnus 2372342-0">Finland-Based · Est. 2372342-0</div>
+        <h1 data-en="Building Value Through<br><em>Strategy, Trust</em><br>and Investment"
+          data-fi="Arvon Rakentaminen<br><em>Strategian, Luottamuksen</em><br>ja Sijoittamisen Kautta">Building Value
+          Through<br><em>Strategy, Trust</em><br>and Investment</h1>
+        <p data-en="EMSANTA OY operates at the intersection of strategy, investment and technology — providing consulting, marketing, real estate investment and software development services."
+          data-fi="EMSANTA OY toimii strategian, sijoittamisen ja teknologian risteyksessä — tarjoten konsultointi-, markkinointi-, kiinteistösijoitus- ja ohjelmistokehityspalveluita.">
+          EMSANTA OY operates at the intersection of strategy, investment and technology — providing consulting,
+          marketing, real estate investment and software development services.
+        </p>
+        <a href="#contact" class="hero-cta" data-en="Discuss Your Project" data-fi="Keskustele Projektistasi">Discuss
+          Your Project</a>
+      </div>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge">
+        <div class="val">EU<span></span></div>
+        <div class="label" data-en="Compliant Standards" data-fi="EU-standardit">Compliant Standards</div>
+      </div>
+      <div class="hero-badge">
+        <div class="val">FI</div>
+        <div class="label" data-en="Finnish Registry" data-fi="Kaupparekisteri">Finnish Registry</div>
+      </div>
+      <div class="hero-badge">
+        <div class="val">4<span style="font-size:16px;color:var(--gold)">+</span></div>
+        <div class="label" data-en="Practice Areas" data-fi="Toimialat">Practice Areas</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── ABOUT ────────────────────────────────────────── -->
+  <section class="about" id="about">
+    <div class="about-left">
+      <div class="about-label" data-en="About the Company" data-fi="Yrityksestä">About the Company</div>
+      <h2 data-en="Analytical Precision.<br><em>Long-Term Thinking.</em>"
+        data-fi="Analyyttinen Tarkkuus.<br><em>Pitkäjänteinen Ajattelu.</em>">Analytical Precision.<br><em>Long-Term
+          Thinking.</em></h2>
+      <div class="gold-line"></div>
+      <p data-en="EMSANTA OY delivers practical solutions focused on efficiency, structured planning and long-term business performance. Rooted in Finnish business culture, we value reliability, transparency and measurable results."
+        data-fi="EMSANTA OY tarjoaa käytännöllisiä ratkaisuja, jotka keskittyvät tehokkuuteen, strukturoituun suunnitteluun ja pitkäaikaiseen liiketoiminnan tuloksellisuuteen. Suomalaisen yrityskulttuurin juuret ohjaavat meitä — arvostamme luotettavuutta, läpinäkyvyyttä ja mitattavia tuloksia.">
+        EMSANTA OY delivers practical solutions focused on efficiency, structured planning and long-term business
+        performance. Rooted in Finnish business culture, we value reliability, transparency and measurable results.
+      </p>
+    </div>
+    <div class="about-right">
+      <p data-en="We combine commercial insight and systematic methodology to support businesses, property owners and investors in achieving sustainable growth. Every project is approached with discipline, discretion and a results-oriented mindset."
+        data-fi="Yhdistämme kaupallisen näkemyksen ja systemaattisen metodologian tukemaan yrityksiä, kiinteistönomistajia ja sijoittajia kestävän kasvun saavuttamisessa. Jokainen projekti toteutetaan kurinalaisuudella, harkinnalla ja tuloskeskeisellä asenteella.">
+        We combine commercial insight and systematic methodology to support businesses, property owners and investors in
+        achieving sustainable growth. Every project is approached with discipline, discretion and a results-oriented
+        mindset.
+      </p>
+      <ul class="principles">
+        <li data-en="Clear Goal-Setting" data-fi="Selkeä Tavoitteiden Asettaminen">Clear Goal-Setting</li>
+        <li data-en="Systematic Execution" data-fi="Systemaattinen Toteutus">Systematic Execution</li>
+        <li data-en="Financial Discipline" data-fi="Taloudellinen Kurinalaisuus">Financial Discipline</li>
+        <li data-en="Confidential &amp; Transparent Processes" data-fi="Luottamukselliset ja Läpinäkyvät Prosessit">
+          Confidential &amp; Transparent Processes</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ────────────────────────────────────── -->
+  <section class="services" id="services">
+    <div class="section-header">
+      <div>
+        <div class="section-label" data-en="What We Do" data-fi="Mitä Teemme">What We Do</div>
+        <h2 data-en="Our Services" data-fi="Palvelumme">Our Services</h2>
+      </div>
+      <p data-en="Four integrated practice areas delivering measurable outcomes for clients and investors."
+        data-fi="Neljä integroitua toimialuetta, jotka tuottavat mitattavia tuloksia asiakkaille ja sijoittajille.">
+        Four integrated practice areas delivering measurable outcomes for clients and investors.
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <svg class="service-icon" viewBox="0 0 32 32" fill="none" stroke="#b8954a" stroke-width="1.5"
+          aria-hidden="true">
+          <rect x="4" y="14" width="24" height="14" />
+          <path d="M2 14l14-10 14 10" />
+          <rect x="12" y="20" width="8" height="8" />
+        </svg>
+        <h3 data-en="Real Estate &amp; Investment" data-fi="Kiinteistöt &amp; Sijoittaminen">Real Estate &amp;
+          Investment</h3>
+        <p data-en="Conservative, risk-aware investment approach focused on capital preservation and steady appreciation."
+          data-fi="Konservatiivinen, riskitietoinen sijoitustapa, joka keskittyy pääoman säilyttämiseen ja tasaiseen arvonnousuun.">
+          Conservative, risk-aware investment approach focused on capital preservation and steady appreciation.</p>
+        <ul class="service-items">
+          <li data-en="Residential &amp; Commercial Properties" data-fi="Asuin- ja liikehuoneistot">Residential &amp;
+            Commercial Properties</li>
+          <li data-en="Active Asset Management" data-fi="Aktiivinen omaisuudenhoito">Active Asset Management</li>
+          <li data-en="Leasing &amp; Tenant Structuring" data-fi="Vuokraus ja vuokralaisrakenne">Leasing &amp; Tenant
+            Structuring</li>
+          <li data-en="Portfolio &amp; Capital Allocation" data-fi="Portfolion ja pääoman allokointi">Portfolio &amp;
+            Capital Allocation</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <svg class="service-icon" viewBox="0 0 32 32" fill="none" stroke="#b8954a" stroke-width="1.5"
+          aria-hidden="true">
+          <circle cx="16" cy="16" r="12" />
+          <path d="M16 8v8l6 3" />
+        </svg>
+        <h3 data-en="Management Consulting" data-fi="Johtamiskonsultointi">Management Consulting</h3>
+        <p data-en="Executive-level advisory in business development, strategic planning and operational optimization."
+          data-fi="Johtotason neuvonta liiketoiminnan kehittämisessä, strategisessa suunnittelussa ja operatiivisessa optimoinnissa.">
+          Executive-level advisory in business development, strategic planning and operational optimization.</p>
+        <ul class="service-items">
+          <li data-en="Market Positioning" data-fi="Markkina-asemointi">Market Positioning</li>
+          <li data-en="Process Optimization" data-fi="Prosessien optimointi">Process Optimization</li>
+          <li data-en="Investment Analysis" data-fi="Sijoitusanalyysi">Investment Analysis</li>
+          <li data-en="Corporate Strategy" data-fi="Yritystrategia">Corporate Strategy</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <svg class="service-icon" viewBox="0 0 32 32" fill="none" stroke="#b8954a" stroke-width="1.5"
+          aria-hidden="true">
+          <path d="M4 20 Q16 4 28 12 Q16 20 4 28Z" />
+          <circle cx="16" cy="16" r="3" />
+        </svg>
+        <h3 data-en="Marketing &amp; Advertising" data-fi="Markkinointi &amp; Mainonta">Marketing &amp; Advertising</h3>
+        <p data-en="Strategic marketing initiatives aligned with business objectives and measurable performance targets."
+          data-fi="Strategiset markkinointihankkeet, jotka on linjattu liiketoimintatavoitteiden ja mitattavien tulostavoitteiden kanssa.">
+          Strategic marketing initiatives aligned with business objectives and measurable performance targets.</p>
+        <ul class="service-items">
+          <li data-en="Brand Strategy" data-fi="Brändistrategia">Brand Strategy</li>
+          <li data-en="Digital Marketing" data-fi="Digitaalinen markkinointi">Digital Marketing</li>
+          <li data-en="Communication Planning" data-fi="Viestintäsuunnittelu">Communication Planning</li>
+          <li data-en="Performance Campaigns" data-fi="Tulospohjaiset kampanjat">Performance Campaigns</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <svg class="service-icon" viewBox="0 0 32 32" fill="none" stroke="#b8954a" stroke-width="1.5"
+          aria-hidden="true">
+          <rect x="4" y="6" width="24" height="18" rx="1" />
+          <path d="M10 14l4 4-4 4" />
+          <path d="M18 22h4" />
+        </svg>
+        <h3 data-en="Software Development" data-fi="Ohjelmistokehitys">Software Development</h3>
+        <p data-en="Custom software solutions designed to support operational efficiency and digital transformation."
+          data-fi="Räätälöidyt ohjelmistoratkaisut, jotka on suunniteltu tukemaan toiminnan tehokkuutta ja digitaalista transformaatiota.">
+          Custom software solutions designed to support operational efficiency and digital transformation.</p>
+        <ul class="service-items">
+          <li data-en="Custom Development" data-fi="Räätälöity kehitys">Custom Development</li>
+          <li data-en="Process Automation" data-fi="Prosessiautomaatio">Process Automation</li>
+          <li data-en="System Integration" data-fi="Järjestelmäintegraatio">System Integration</li>
+          <li data-en="Technical Consulting" data-fi="Tekninen konsultointi">Technical Consulting</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY ─────────────────────────────────────────── -->
+  <section class="why" id="why">
+    <div class="why-left">
+      <div class="why-box">
+        <div class="big-quote">"</div>
+        <blockquote
+          data-en='Every engagement is guided by <em>discipline, discretion</em> and a commitment to results that outlast the project itself.'
+          data-fi='Jokainen toimeksianto ohjautuu <em>kurinalaisuudesta, harkinnasta</em> ja sitoutumisesta tuloksiin, jotka kestävät projektin yli.'>
+          Every engagement is guided by <em>discipline, discretion</em> and a commitment to results that outlast the
+          project itself.
+        </blockquote>
+        <div class="trust-metrics">
+          <div class="trust-metric">
+            <div class="t-val">EU</div>
+            <div class="t-label" data-en="Compliant Standards" data-fi="EU-standardit">Compliant Standards</div>
+          </div>
+          <div class="trust-metric">
+            <div class="t-val">FI</div>
+            <div class="t-label" data-en="Finnish Registry" data-fi="Kaupparekisteri">Finnish Registry</div>
+          </div>
+          <div class="trust-metric">
+            <div class="t-val">100%</div>
+            <div class="t-label" data-en="Discreet Advisory" data-fi="Luottamuksellinen neuvonta">Discreet Advisory
+            </div>
+          </div>
+          <div class="trust-metric">
+            <div class="t-val">4</div>
+            <div class="t-label" data-en="Practice Areas" data-fi="Toimialat">Practice Areas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-right">
+      <div class="section-label" data-en="Why EMSANTA OY" data-fi="Miksi EMSANTA OY">Why EMSANTA OY</div>
+      <h2 data-en="A Trusted<br>Strategic Partner" data-fi="Luotettava<br>Strateginen Kumppani">A Trusted<br>Strategic
+        Partner</h2>
+      <div class="why-features">
+        <div class="why-feature">
+          <div class="why-feature-num">—</div>
+          <div class="why-feature-text">
+            <h4 data-en="Structured Workflows" data-fi="Strukturoidut Työnkulut">Structured Workflows</h4>
+            <p data-en="Predictable processes and clear deliverables at every stage of engagement."
+              data-fi="Ennakoitavat prosessit ja selkeät toimitukset jokaisessa toimeksiantovaiheessa.">Predictable
+              processes and clear deliverables at every stage of engagement.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-num">—</div>
+          <div class="why-feature-text">
+            <h4 data-en="Cross-Border Expertise" data-fi="Kansainvälinen Osaaminen">Cross-Border Expertise</h4>
+            <p data-en="Experienced with international and cross-border projects across multiple industries."
+              data-fi="Kokemusta kansainvälisistä ja rajat ylittävistä projekteista eri toimialoilla.">Experienced with
+              international and cross-border projects across multiple industries.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-num">—</div>
+          <div class="why-feature-text">
+            <h4 data-en="Confidential Handling" data-fi="Luottamuksellinen Käsittely">Confidential Handling</h4>
+            <p data-en="All client information managed with strict discretion and professional standards."
+              data-fi="Kaikkia asiakastietoja hallitaan tiukalla harkinnalla ja ammattistandardeilla.">All client
+              information managed with strict discretion and professional standards.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-num">—</div>
+          <div class="why-feature-text">
+            <h4 data-en="Combined Expertise" data-fi="Yhdistetty Asiantuntemus">Combined Expertise</h4>
+            <p data-en="Unified competence in business, marketing, investment and technology."
+              data-fi="Yhtenäinen osaaminen liiketoiminnassa, markkinoinnissa, sijoittamisessa ja teknologiassa.">
+              Unified competence in business, marketing, investment and technology.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ──────────────────────────────────────── -->
+  <section class="contact" id="contact">
+    <div class="contact-left">
+      <div class="section-label" data-en="Get in Touch" data-fi="Ota Yhteyttä">Get in Touch</div>
+      <h2 data-en="Let's Build<br><em>Sustainable Value</em><br>Together"
+        data-fi="Rakennetaan<br><em>Kestävää Arvoa</em><br>Yhdessä">Let's Build<br><em>Sustainable
+          Value</em><br>Together</h2>
+      <p data-en="We are ready to discuss your project — whether it involves consulting, investment cooperation, marketing or software development. EMSANTA OY supports your objectives with professionalism and precision."
+        data-fi="Olemme valmiita keskustelemaan projektistasi — olipa kyse konsultoinnista, sijoitusyhteistyöstä, markkinoinnista tai ohjelmistokehityksestä. EMSANTA OY tukee tavoitteitasi ammattimaisesti ja tarkasti.">
+        We are ready to discuss your project — whether it involves consulting, investment cooperation, marketing or
+        software development. EMSANTA OY supports your objectives with professionalism and precision.
+      </p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </div>
+          <div class="contact-item-text"><small>Email</small><a href="mailto:info@emsanta.fi">info@emsanta.fi</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <div class="contact-item-text"><small data-en="Registered"
+              data-fi="Rekisteröity">Registered</small><span>Finland · 2372342-0</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <h3 data-en="Start a Conversation" data-fi="Aloita Keskustelu">Start a Conversation</h3>
+      <div class="form-group"><label data-en="Name" data-fi="Nimi">Name</label><input type="text" id="f-name"
+          data-placeholder-en="Your name" data-placeholder-fi="Nimesi" placeholder="Your name"></div>
+      <div class="form-group"><label data-en="Company" data-fi="Yritys">Company</label><input type="text" id="f-company"
+          data-placeholder-en="Organisation or company" data-placeholder-fi="Organisaatio tai yritys"
+          placeholder="Organisation or company"></div>
+      <div class="form-group"><label data-en="Email Address" data-fi="Sähköpostiosoite">Email Address</label><input
+          type="email" id="f-email" placeholder="your@email.com"></div>
+      <div class="form-group"><label data-en="Message" data-fi="Viesti">Message</label><textarea rows="4" id="f-msg"
+          data-placeholder-en="Briefly describe your project or enquiry"
+          data-placeholder-fi="Kuvaile lyhyesti projektisi tai tiedustelusi"
+          placeholder="Briefly describe your project or enquiry"></textarea></div>
+      <button class="form-submit" data-en="Send Message" data-fi="Lähetä Viesti">Send Message</button>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────── -->
+  <footer>
+    <div class="logo-text">EMSANTA<span>.</span>OY</div>
+    <p data-en="Strategic Expertise. Disciplined Investment. Measurable Results."
+      data-fi="Strateginen osaaminen. Kurinalaiset sijoitukset. Mitattavat tulokset.">Strategic Expertise. Disciplined
+      Investment. <span>Measurable Results.</span></p>
+    <p>© <span id="footer-year"></span> EMSANTA OY · <span>Finland</span></p>
+  </footer>
+
+  <script>
+    // ─── Year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ─── Scroll nav
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ─── Hero photo zoom-in
+    setTimeout(() => {
+      document.getElementById('heroPhoto').classList.add('loaded');
+    }, 100);
+
+    // ─── Hamburger / mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ─── Language switcher
+    let currentLang = 'en';
+    function setLang(lang) {
+      currentLang = lang;
+      // Update buttons
+      ['en', 'fi'].forEach(l => {
+        document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+        const mob = document.getElementById('mob-btn-' + l);
+        if (mob) mob.classList.toggle('active', l === lang);
+      });
+      // Update all text nodes
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        const val = el.getAttribute('data-' + lang);
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = el.getAttribute('data-placeholder-' + lang) || el.placeholder;
+        } else if (el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'DIV' || el.tagName === 'P' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' || el.tagName === 'LI' || el.tagName === 'SMALL' || el.tagName === 'LABEL') {
+          el.innerHTML = val;
+        }
+        if (el.tagName === 'BLOCKQUOTE') {
+          el.innerHTML = val;
+        }
+      });
+      document.documentElement.lang = lang;
+    }
+  </script>
+</body>
+
+</html>
